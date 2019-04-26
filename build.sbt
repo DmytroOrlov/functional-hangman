@@ -11,7 +11,7 @@ lazy val root = (project in file(".")).settings(
       scalaVersion := "2.12.8",
     )),
   name := "hangman",
-  libraryDependencies += "org.scalaz" %% "scalaz-zio" % "1.0-RC1",
+  libraryDependencies += "org.scalaz" %% "scalaz-zio" % "1.0-RC4",
   libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.26",
   libraryDependencies += scalaTest    % Test
 )
