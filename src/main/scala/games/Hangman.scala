@@ -41,11 +41,8 @@ object Hangman extends App {
     for {
       _    <- putStrLn("Please guess a letter")
       line <- getStrLn
-      char <- line.toLowerCase.trim.headOption match {
-        case None =>
-          putStrLn("You did not enter a letter") *> getChoice
-        case Some(c) => ZIO.succeed(c)
-      }
+      char <- line.toLowerCase.trim.headOption
+        .fold(putStrLn("You did not enter a letter") *> getChoice)(ZIO.succeed)
     } yield char
 
   def renderState(state: State): ZIO[Console, IOException, Unit] = {
