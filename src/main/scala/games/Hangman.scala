@@ -52,16 +52,15 @@ object Hangman extends App {
     //
     // Guesses: a, z, y, x
     //
-    val word =
-      state.word.toList
-        .map(c => if (state.guesses.contains(c)) c else " ")
-        .mkString(" ")
+    val word = state.word
+      .map(c => if (state.guesses.contains(c)) c else " ")
+      .mkString(" ")
 
     val placeholders =
-      state.word.toList.map(_ => "_").mkString(" ")
+      state.word.map(_ => "_").mkString(" ")
 
     val guesses =
-      state.guesses.toList.mkString(", ")
+      state.guesses.mkString(", ")
 
     for {
       _ <- putStrLn("")
